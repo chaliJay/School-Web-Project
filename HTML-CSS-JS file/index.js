@@ -2,6 +2,10 @@ function toggleMenu() {
     document.getElementById("dropdown-menu").classList.toggle("show");
 }
 
+function openLoginPage() {
+    window.location.href='../html/login.html'
+}
+
 // Close the menu if the user clicks anywhere else on the screen
 window.onclick = function(event) {
   if (!event.target.closest('.create-container')) {
@@ -43,4 +47,3 @@ chipsBox.onscroll = function() {
         rightBtn.style.display = "flex";
     }
 };
-
