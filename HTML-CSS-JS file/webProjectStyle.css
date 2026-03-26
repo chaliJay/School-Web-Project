@@ -123,6 +123,82 @@ body {
 }
 
 /* Video Section for the Random Boxes */
+.filter-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #0f0f0f;
+    padding: 12px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.chips-wrapper {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    padding: 0 0px; /* Space on both sides for arrows */
+}
+
+/* Hide scrollbars */
+.chips-wrapper::-webkit-scrollbar { display: none; }
+.chips-wrapper { -ms-overflow-style: none; scrollbar-width: none; }
+
+.chip {
+    background: #272727;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.chip.active { background: white; color: black; }
+
+/* Arrow Containers & Fades */
+.btn-container {
+    position: absolute;
+    height: 100%;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Let clicks pass through the fade to the chips */
+    z-index: 2;
+}
+
+.left-fade {
+    left: 0;
+    background: linear-gradient(to right, #0f0f0f 60%, transparent);
+    justify-content: flex-start;
+}
+
+.right-fade {
+    right: 0;
+    background: linear-gradient(to left, #0f0f0f 60%, transparent);
+    justify-content: flex-end;
+}
+
+.nav-btn {
+    pointer-events: auto; /* Re-enable clicks for the button */
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover { background: rgba(255, 255, 255, 0.1); border-radius: 50%; }
+
+
 .video-section { padding: 24px; }
 .video-grid {
     display: grid;
