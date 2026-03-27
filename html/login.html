@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Login page</title>
 </head>
 <body class="bg-dark text-white">
     <div class="container vh-100 d-flex align-items-center justify-content-center">
     <div class="row w-100" style="max-width: 900px;">
-
       <div class="col-md-6 d-flex flex-column justify-content-center">
-        <h1 class="display-3">Vidzä</h1>
+        <button onclick="onBackClick()"  class="btn btn-secondary w-25 rounded-pill mb-3">Back</button>
+        <h1 class="display-1">Vidzä</h1>
         <p class="fs-4">Login</p>
       </div>
 
@@ -22,7 +21,7 @@
           <input class="form-control mb-3" type="password" placeholder="Enter password">
 
           <button class="btn btn-secondary w-100 rounded-pill mb-3">Login</button>
-
+          
           <p class="text-center small">Not registered?</p>
 
           <button onclick="openSignUpPage()" class="btn btn-light w-100 rounded-pill">
