@@ -38,3 +38,18 @@
     padding: 12px;
     width: 100%;
   }
+
+.back-button {
+  border:none;
+  background: none;
+  cursor: pointer;
+  padding:8px;
+    position: fixed;
+    top: 70px;
+    left: 70px;
+  }
+
+
+  .back-button:hover {
+    stroke:#555;
+  }

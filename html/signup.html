@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/signup.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Signup</title>
 </head>
 
-<body class="d-flex align-items-center justify-content-center vh-100 bg-v bg-dark text-white">
+<body class="bg-dark text-white">
 
- <div class="container-fluid page-wrapper d-flex align-items-center">
-    <div class="row w-100">
+ <div class="container vh-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100" style="max-width: 900px;">
 
-      <div class="col-md-6 d-flex flex-column justify-content-center ps-5">
-        <div class="brand">
-          <h1>Vidzä</h1>
-          <p>Join us</p>
-        </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <button onclick="onBackClick()" class="btn btn-secondary w-25 rounded-pill mb-3">Back</button>
+        <h1 class="display-1">Vidzä</h1>
+        <p class="fs-4">Join us</p>
       </div>
 
-      <div class="col-md-6 d-flex justify-content-center">
-        <div class="form-card">
-
+      <div class="col-md-6">
+        <div class="p-4 bg-black rounded">
           <input class="form-control mb-3" placeholder="First name">
           <input class="form-control mb-3" placeholder="Last name">
 
@@ -40,14 +37,11 @@
 
           <input class="form-control mb-3" placeholder="Gender">
           <input class="form-control mb-4" placeholder="Email or phone">
-
-          <button class="btn btn-main"  >Register</button>
-
+          <button class="btn btn-secondary w-100 rounded-pill mb-3">Register</button>
         </div>
       </div>
-
     </div>
   </div>
-<script src="../../js/signup.js"></script>
+  <script src="../../js/signup.js"></script>
 </body>
 </html>
