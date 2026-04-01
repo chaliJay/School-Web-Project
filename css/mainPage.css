@@ -256,6 +256,7 @@ body {
     margin-top: 32px;
 }
 .video-box {
+    height: 13rem;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
 }
@@ -276,14 +277,18 @@ a{
 }
 .title{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-top: 10px;
     gap: 15px;
 }
 .video-title{
-    font-size: 20px;
-
+    width: 12em;
+    font-size: .9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5rem;
 }
 .new-to-you-container {
     grid-column: 1 / -1; 

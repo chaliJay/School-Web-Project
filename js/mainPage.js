@@ -50,8 +50,57 @@ chipsBox.onscroll = function() {
     }
 };
 
-const url = "../html/videoPage.html";
+// ===== FETCH VIDEOS FROM BACKEND =====
+async function loadVideos() {
+    try {
+        const response = await fetch(`${BACKEND_ROOT_URL}/videos`);
+        const videos = await response.json();
+        populateVideoGrid(videos);
+    } catch (error) {
+        console.error('Error fetching videos:', error);
+    }
+}
 
-document.querySelectorAll(".video-link").forEach(link => {
-    link.href = url;
-  });
+function populateVideoGrid(videos) {
+    if (!Array.isArray(videos) || videos.length === 0) {
+        // No backend video data; keep the static cards already in HTML.
+        return;
+    }
+
+    const cards = document.querySelectorAll('.video-link');
+
+    cards.forEach((card, index) => {
+        const fallbackId = index + 1;
+        card.href = `../html/videoPage.html?videoId=${fallbackId}`;
+
+        if (index >= videos.length) {
+            // keep the rest of the static cards (with fallback click behavior)
+            return;
+        }
+
+        const video = videos[index];
+        const thumbnailPath = video.thumbnail_file_path
+            ? video.thumbnail_file_path.replace(/\\/g, '/').replace(/^(\.\.\/)+/, '')
+            : 'assets/video-placeholder.png';
+
+        card.href = `../html/videoPage.html?videoId=${video.id}`;
+        card.innerHTML = `
+            <div class="outline">
+                <div class="video-box">
+                    <div class="fill">
+                        <img class="video-box" src="../${thumbnailPath}" alt="${video.video_title}" >
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="fa-solid fa-circle-user" style="margin-bottom: 40px; font-size: 3rem;"></i>
+                    <p class="video-title">${video.video_title}<br>
+                    <small class="video-creator" style="color: grey; font-size: 1rem;">${video.username}</small>
+                    </p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// Load videos when page loads
+document.addEventListener('DOMContentLoaded', loadVideos);
