@@ -100,18 +100,3 @@ function populateVideoGrid(videos) {
 
 // Load videos when page loads
 document.addEventListener('DOMContentLoaded', loadVideos);
-
-// Check if user is logged in
-const user = JSON.parse(localStorage.getItem("user"));
-
-const profileIcon = document.getElementById("profileIcon");
-
-if (user) {
-    profileIcon.addEventListener("click", () => {
-        window.location.href = '../html/profilePage.html';
-    });
-} else {
-    profileIcon.addEventListener("click", () => {
-        window.location.href = '../html/login.html';
-    });
-}

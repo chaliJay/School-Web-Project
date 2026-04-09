@@ -58,18 +58,3 @@ async function loadVideo() {
 
 // Load video when page loads
 document.addEventListener('DOMContentLoaded', loadVideo);
-
-// Check if user is logged in
-const profileUser = JSON.parse(localStorage.getItem("user"));
-
-const profileUserIcon = document.getElementById("profileIcon");
-
-if (profileUserIcon) {
-    profileUserIcon.addEventListener("click", () => {
-        window.location.href = '../html/profilePage.html';
-    });
-} else {
-    profileUserIcon.addEventListener("click", () => {
-        window.location.href = '../html/login.html';
-    });
-}
