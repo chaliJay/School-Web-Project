@@ -66,7 +66,7 @@ window.onload = () => {
 };
 
 async function loadComments() {
-    const res = await fetch(`http://localhost:3001/comments/${videoId}`);
+    const res = awaitfetch(`${BACKEND_ROOT_URL}/comments/${videoId}`);
     const data = await res.json();
 
     const container = document.getElementById("commentsList");
@@ -84,7 +84,7 @@ async function addComment() {
 
     if (!input.value) return;
 
-    await fetch("http://localhost:3001/comments", {
+    await fetch(`${BACKEND_ROOT_URL}/comments`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -97,5 +97,5 @@ async function addComment() {
     });
 
     input.value = "";
-    loadComments(); // refresh comments
+    loadComments(); // refreshing comments
 }
