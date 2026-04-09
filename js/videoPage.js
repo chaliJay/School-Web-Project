@@ -58,3 +58,44 @@ async function loadVideo() {
 
 // Load video when page loads
 document.addEventListener('DOMContentLoaded', loadVideo);
+const urlParams = new URLSearchParams(window.location.search);
+const videoId = urlParams.get("videoId");
+// Load comments when page loads
+window.onload = () => {
+    loadComments();
+};
+
+async function loadComments() {
+    const res = await fetch(`http://localhost:3001/comments/${videoId}`);
+    const data = await res.json();
+
+    const container = document.getElementById("commentsList");
+    container.innerHTML = "";
+
+    data.forEach(c => {
+        container.innerHTML += `
+            <p><b>${c.user_name}</b>: ${c.content}</p>
+        `;
+    });
+}
+
+async function addComment() {
+    const input = document.getElementById("commentInput");
+
+    if (!input.value) return;
+
+    await fetch("http://localhost:3001/comments", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            video_id: videoId,
+            user_name: "User", // later from login
+            content: input.value
+        })
+    });
+
+    input.value = "";
+    loadComments(); // refresh comments
+}
