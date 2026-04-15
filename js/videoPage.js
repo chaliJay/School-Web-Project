@@ -16,9 +16,12 @@ async function loadVideo() {
         const video = await response.json();
         
         if (video) {
-            // Convert Windows paths to web paths
-            const videoPath = video.video_file_path.replace(/\\/g, '/').replace(/^(\.\.\/)+/, '');
-            const fullPath = `../${videoPath}`;
+            // Extract filename and folder from path
+            const videoPath = video.video_file_path.replace(/\\/g, '/');
+            const parts = videoPath.split('/');
+            const filename = parts[parts.length - 1];
+            const folder = parts[parts.length - 2];
+            const fullPath = `${BACKEND_ROOT_URL}/${folder}/${filename}`;
             
             // Debug logs to verify paths and video data
             console.log('Video ID:', videoId);

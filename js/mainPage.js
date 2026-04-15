@@ -75,16 +75,21 @@ function populateVideoGrid(videos) {
         }
 
         const video = videos[index];
-        const thumbnailPath = video.thumbnail_file_path
-            ? video.thumbnail_file_path.replace(/\\/g, '/').replace(/^(\.\.\/)+/, '')
-            : 'assets/video-placeholder.png';
+        const thumbnailPath = video.thumbnail_file_path;
+        let thumbnailUrl = 'assets/video-placeholder.png'; // default
+        if (thumbnailPath) {
+            const parts = thumbnailPath.replace(/\\/g, '/').split('/');
+            const filename = parts[parts.length - 1];
+            const folder = parts[parts.length - 2];
+            thumbnailUrl = `${BACKEND_ROOT_URL}/${folder}/${filename}`;
+        }
 
         card.href = `../html/videoPage.html?videoId=${video.id}`;
         card.innerHTML = `
             <div class="outline">
                 <div class="video-box">
                     <div class="fill">
-                        <img class="video-box" src="../${thumbnailPath}" alt="${video.video_title}" >
+                        <img class="video-box" src="${thumbnailUrl}" alt="${video.video_title}" >
                     </div>
                 </div>
                 <div class="title">
