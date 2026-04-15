@@ -1,3 +1,5 @@
+const BACKEND_ROOT_URL = 'https://backend-school-web-project.onrender.com';
+
 async function loadVideo() {
     // Get videoId from URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,7 +17,7 @@ async function loadVideo() {
         const response = await fetch(`${BACKEND_ROOT_URL}/videos/${videoId}`);
         const video = await response.json();
         
-        if (video) {
+        if (video && video.video_file_path) {
             // Extract filename and folder from path
             const videoPath = video.video_file_path.replace(/\\/g, '/');
             const parts = videoPath.split('/');
@@ -31,9 +33,10 @@ async function loadVideo() {
             
             // Update video source specifically (not just any source tag)
             const sourceElement = document.querySelector('video source');
-            if (sourceElement) {
+            const videoElement = document.querySelector('video');
+            if (sourceElement && videoElement) {
                 sourceElement.src = fullPath;
-                document.querySelector('video').load();
+                videoElement.load();
                 console.log('Video source updated to:', fullPath);
             } else {
                 console.error('Source element not found in DOM');
