@@ -15,7 +15,7 @@ document.getElementById("signupForm").addEventListener("submit", async function(
     };
 
     try {
-        const response = await fetch("http://localhost:3001/register", {
+        const response = await fetch(`${BACKEND_ROOT_URL}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
