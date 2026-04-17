@@ -1,4 +1,3 @@
-const BACKEND_ROOT_URL = 'https://backend-school-web-project.onrender.com';
 document.getElementById("loginBtn").addEventListener("click", loginUser);
 
 async function loginUser() {

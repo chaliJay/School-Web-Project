@@ -1,13 +1,17 @@
+const BACKEND_ROOT_URL = 'https://backend-school-web-project.onrender.com';
+
 function getUser() {
     return JSON.parse(localStorage.getItem("user"));
 }
 
 function loadUserInfo() {
     const user = getUser();
-    const userEmail = document.getElementById("userEmail");
+    
+    const userInfo = document.getElementById("userInfo");
 
-    if (userEmail) {
-        userEmail.textContent = user && user.email ? user.email : "Guest";
+    if (userInfo) {
+        console.log('inside infor')
+        userInfo.textContent = user ? user.firstName +" "+ user.lastName : "John Doe";
     }
 }
 
@@ -16,6 +20,7 @@ function getMenu() {
 }
 
 function openProfileMenu() {
+    console.log('openprofile menuuu')
     const menu = getMenu();
 
     if (!getUser()) {
