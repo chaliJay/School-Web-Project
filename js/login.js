@@ -39,3 +39,4 @@ async function loginUser() {
         alert("Server error");
     }
 }
+localStorage.setItem("user", JSON.stringify(data.user));
