@@ -25,7 +25,7 @@ async function loadVideo() {
             
             // Debug logs to verify paths and video data
             console.log('Video ID:', videoId);
-            console.log(folder, filename);
+           // console.log(folder, filename);
             console.log('Original path from DB:', video.video_file_path);
             console.log('Full src path:', fullPath);
             
@@ -70,7 +70,7 @@ window.onload = () => {
 };
 
 async function loadComments() {
-    const res = await fetch(`${BACKEND_ROOT_URL}/comments/${videoId}`);
+    const res = await fetch(`${BACKEND_ROOT_URL}/api/comments/${videoId}`);
     const data = await res.json();
 
     const container = document.getElementById("commentsList");
