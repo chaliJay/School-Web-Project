@@ -1,4 +1,3 @@
-//const BACKEND_ROOT_URL = 'https://localhost:3001';
 const BACKEND_ROOT_URL = 'https://backend-school-web-project.onrender.com';
 
 document.getElementById("loginBtn").addEventListener("click", loginUser);
@@ -23,14 +22,20 @@ async function loginUser() {
 
         const data = await response.json();
 
-        if (response.ok) {
-            alert("Login successful!");
+if (response.ok) {
+    alert("Login successful!");
 
-            //Save user in localStorage for session
-            localStorage.setItem("user", JSON.stringify(data.user));
+    console.log("Saved user:", data.user); // ✅ KEEP IT HERE (INSIDE)
 
-            window.location.href = "mainPage.html";
-        } else {
+    localStorage.clear(); // force remove old bad data
+
+localStorage.setItem("user", JSON.stringify(data.user));
+localStorage.setItem("userId", data.user.id);
+
+console.log("AFTER LOGIN SAVE:", localStorage.getItem("user"));
+
+    window.location.href = "mainPage.html";
+} else {
             alert(data.message || "Login failed");
         }
 
@@ -39,4 +44,3 @@ async function loginUser() {
         alert("Server error");
     }
 }
-localStorage.setItem("user", JSON.stringify(data.user));

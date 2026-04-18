@@ -95,7 +95,7 @@ async function addComment() {
         },
         body: JSON.stringify({
             video_id: videoId,
-            user_name: "User", // later from login
+            user_name: "User", 
             content: input.value
         })
     });

@@ -9,8 +9,7 @@ function loadUserInfo() {
 
     if (userInfo) {
         console.log('inside infor')
-        userInfo.textContent = user ? user.firstName +" "+ user.lastName : "John Doe";
-    }
+        userInfo.textContent = user ? user.firstName +" "+ user.lastName : "John Doe";    }
 }
 
 function getMenu() {

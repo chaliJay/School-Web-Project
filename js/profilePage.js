@@ -1,21 +1,28 @@
-const user = JSON.parse(localStorage.getItem("user"));
+const originalSetItem = localStorage.setItem;
 
-console.log(user); // ✅ check if id exists
+localStorage.setItem = function(key, value) {
+  console.trace("localStorage.setItem called:", key, value);
+  originalSetItem.apply(this, arguments);
+};
+const userId = localStorage.getItem("userId");
 
-if (!user || !user.id) {
+console.log("UserId:", userId);
+
+if (!userId) {
   alert("User not logged in properly");
   window.location.href = "login.html";
 }
-
-// ✅ IMPORTANT: include /api
-fetch(`https://backend-school-web-project.onrender.com/api/profile/${user.id}`)
-  .then(res => res.json())
+fetch(`https://backend-school-web-project.onrender.com/profile/${userId}`)
+  .then(res => {
+    if (!res.ok) throw new Error("Failed to fetch profile");
+    return res.json();
+  })
   .then(data => {
-    console.log(data);
+    console.log("Profile data:", data);
 
     document.getElementById("name").textContent = data.username;
     document.getElementById("email").textContent = data.email;
     document.getElementById("gender").textContent = data.gender;
     document.getElementById("birthday").textContent = data.birthday;
   })
-  .catch(err => console.error(err));
+  .catch(err => console.error("ERROR:", err));
