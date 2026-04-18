@@ -26,8 +26,11 @@ fetch(`https://backend-school-web-project.onrender.com/profile/${userId}`)
     document.getElementById("gender").textContent =
       data.gender ? data.gender : "Not available";
 
-    document.getElementById("birthday").textContent =
-      data.birthday ? data.birthday : "Not available";
+    const formattedDate = data.birthday
+  ? data.birthday.split("T")[0]
+  : "Not set";
+
+document.getElementById("birthday").textContent = formattedDate;
   })
   .catch(err => {
     console.error("❌ FETCH ERROR:", err);
