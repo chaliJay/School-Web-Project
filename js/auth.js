@@ -8,7 +8,7 @@ function loadUserInfo() {
     const userInfo = document.getElementById("userInfo");
 
     if (userInfo) {
-        console.log('inside infor')
+        console.log('inside info')
         userInfo.textContent = user ? user.firstName +" "+ user.lastName : "John Doe";
     }
 }
