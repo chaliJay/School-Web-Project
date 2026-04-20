@@ -86,7 +86,9 @@ async function loadComments() {
 async function addComment() {
     const input = document.getElementById("commentInput");
     const username = localStorage.getItem("userName");
-
+console.log("Username from localStorage:", username);
+localStorage.clear();
+console.log("Username after clearing localStorage:", localStorage.getItem("userName"));
     if (!input.value) return;
 
     await fetch(`${BACKEND_ROOT_URL}/api/comments`, {
