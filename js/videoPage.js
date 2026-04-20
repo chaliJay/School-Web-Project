@@ -100,7 +100,7 @@ async function addComment() {
             content: input.value
         })
     });
-    if (!response.ok) {
+    if (!res.ok) {
             alert("Please log in or sign up to add a comment");}
     input.value = "";
     loadComments(); // refreshing comments
