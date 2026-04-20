@@ -32,6 +32,8 @@ function openProfileMenu() {
 
 function signout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
     getMenu().style.display = "none";
 }
 
