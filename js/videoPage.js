@@ -86,7 +86,7 @@ async function loadComments() {
 async function addComment() {
     const input = document.getElementById("commentInput");
     const username = localStorage.getItem("userName");
-console.log("Username from localStorage:", username);
+
     if (!input.value) return;
 
     await fetch(`${BACKEND_ROOT_URL}/api/comments`, {
@@ -100,7 +100,8 @@ console.log("Username from localStorage:", username);
             content: input.value
         })
     });
-
+    if (!response.ok) {
+            alert("Please log in or sign up to add a comment");}
     input.value = "";
     loadComments(); // refreshing comments
 }
