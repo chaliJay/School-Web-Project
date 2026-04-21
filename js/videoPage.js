@@ -87,11 +87,11 @@ async function addComment() {
     const input = document.getElementById("commentInput");
     const username = localStorage.getItem("userName");
 console.log("Username from localStorage:", username);
-localStorage.clear();
-console.log("Username after clearing localStorage:", localStorage.getItem("userName"));
+//localStorage.clear();
+//console.log("Username after clearing localStorage:", localStorage.getItem("userName"));
     if (!input.value) return;
 
-    await fetch(`${BACKEND_ROOT_URL}/api/comments`, {
+   const poster = await fetch(`${BACKEND_ROOT_URL}/api/comments`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -102,6 +102,11 @@ console.log("Username after clearing localStorage:", localStorage.getItem("userN
             content: input.value
         })
     });
+    if (!poster.ok) {
+        const errorData = await poster.json();
+        alert(errorData.alert || "Please log in or sign up to add a comment");
+        return;
+    }
     input.value = "";
     loadComments(); // refreshing comments
 }
