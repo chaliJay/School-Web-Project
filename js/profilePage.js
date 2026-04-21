@@ -1,4 +1,4 @@
-const BACKEND_ROOT_URL = process.env.BACKEND_URL;
+const BACKEND_ROOT_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const user = JSON.parse(localStorage.getItem("user"));
 const userId = localStorage.getItem("userId");
