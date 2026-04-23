@@ -101,7 +101,7 @@
                         <img src="https://placeholder.com" alt="Profile" class="avatar">
                     </div>
                 </div>
-                
+
                 <!-- Info Row: Username -->
                 <div class="info-row">
                     <div class="label-group">
@@ -110,7 +110,9 @@
                             <h3>Username</h3>
                         </div>
                     </div>
-                    <div class="val-display" id="username"></div>
+                    <div class="val-display" id="username">
+                        
+                    </div>
                 </div>
 
                 <!-- Info Row: Name -->
@@ -159,9 +161,14 @@
                             <h3>Vidzä password</h3>
                         </div>
                     </div>
-                    <div class="val-display">********
-                       <br><a href="#" class="password-change">Change password</a></div>
+                    <div class="val-display" id="password-container">
+                        ********
+                        <br><a href="#" class="password-change">Change password</a>
+                    </div>
                 </div>                     
+            </div>
+            <div id="button-container">
+                <button id="edit-btn">Edit Profile</button>
             </div>
         </main>
     </div>
