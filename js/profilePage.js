@@ -12,7 +12,7 @@ if (!user || !userId) {
 }
 
 window.onload = function() {
-
+    loadProfileDetails();
 };
 async function loadProfileDetails() {
   const response = await fetch(`${BACKEND_ROOT_URL}/profile/${userId}`);
