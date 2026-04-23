@@ -16,7 +16,7 @@ async function loadProfileDetails() {
       const response = await fetch(`${BACKEND_ROOT_URL}/profile/${userId}`);
       const data = await response.json();
       document.getElementById("username").textContent = data.username;
-      document.getElementById("name").textContent = data.fullname;
+      document.getElementById("name").textContent = data.firstname + " " + data.lastname;
       document.getElementById("email").textContent = data.email;
       document.getElementById("gender").textContent = data.gender ? data.gender : "Not available";
       document.getElementById("birthday").textContent = data.birthday ? data.birthday.split("T")[0] : "Not set";
