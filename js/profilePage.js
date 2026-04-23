@@ -11,49 +11,19 @@ if (!user || !userId) {
   window.location.href = "login.html";
 }
 
-document.getElementById("username").textContent = user.username;
-document.getElementById("name").textContent = user.fullname;
-document.getElementById("email").textContent = user.email;
-document.getElementById("gender").textContent = user.gender ? user.gender : "Not available";
-document.getElementById("birthday").textContent = user.birthday ? user.birthday.split("T")[0]: "Not set";;
+window.onload = function() {
 
-forEach(document.querySelectorAll(".edit-btn"), btn => {
-    btn.addEventListener("click", () => {
-        const field = btn.dataset.field;
-        const currentValue = document.getElementById(field).textContent;
-        const newValue = prompt(`Enter new value for ${field}:`, currentValue);
-        if (newValue !== null) {
-            document.getElementById(field).textContent = newValue;
-            updateProfile(field, newValue);
-        }
-    });
-});
-
-async function updateProfile(field, value) {
-    const updateData = {
-        firstName: document.getElementById("name").textContent.split(" ")[0],
-        lastName: document.getElementById("name").textContent.split(" ")[1] || "",
-        email: document.getElementById("email").textContent,
-        gender: document.getElementById("gender").textContent,
-        birthday: document.getElementById("birthday").textContent
-    };
-
-    try {
-        const response = await fetch(`${BACKEND_ROOT_URL}/profile/${userId}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(updateData)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        console.log("Profile updated successfully:", result);
-    } catch (error) {
-        console.error("❌ UPDATE ERROR:", error);
-    }
+};
+async function loadProfileDetails() {
+  const response = await fetch(`${BACKEND_ROOT_URL}/profile/${userId}`);
+  if (!response.ok) {
+    alert("Failed to load profile details");
+    return;
+  }
+  const profileData = await response.json();
+  document.getElementById("username").textContent = profileData.username;
+  document.getElementById("name").textContent = profileData.fullname;
+  document.getElementById("email").textContent = profileData.email;
+  document.getElementById("gender").textContent = profileData.gender ? profileData.gender : "Not available";
+  document.getElementById("birthday").textContent = profileData.birthday ? profileData.birthday.split("T")[0]: "Not set";
 }
