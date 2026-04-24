@@ -76,23 +76,33 @@
 
       <div class="meta-row">
 
-      <div>
-        <div class="title-row">
-          <h5 class="video-title">Test video name</h5>
-          <button class="follow-btn">Follow</button>
+        <div>
+          <div class="title-row">
+            <h5 class="video-title">Test video name</h5>
+            <button class="follow-btn">Follow</button>
+          </div>
+          <div class="video-user">TestUser</div>
+          <div class="followers">6k followers</div>
         </div>
-        <div class="video-user">TestUser</div>
-        <div class="followers">6k followers</div>
-      </div>
 
-      <!-- Right Icons -->
-      <div class="actions">
-        <i class="bi bi-emoji-smile"></i>
-        <i class="bi bi-hand-thumbs-up"></i>
-        <i class="bi bi-hand-thumbs-down"></i>
-        <i class="bi bi-share"></i>
-      </div>
+        <div class="actions">
+          <div id="selectedEmoji" style="margin-bottom:10px; font-size:24px;"></div>
+    
+          <div class="emoji-wrapper" style="position: relative; display: inline-block;">
+            <i class="bi bi-emoji-smile emoji-icon" id="emojiBtn"></i>
+            <div id="emojiPicker" class="emoji-picker">
+              <span class="emoji">😀</span>
+              <span class="emoji">😂</span>
+              <span class="emoji">😍</span>
+              <span class="emoji">😢</span>
+              <span class="emoji">🔥</span>
+            </div>
+          </div>
+        <i class="bi bi-hand-thumbs-up like-icon" id="likeBtn"></i>
+        <i class="bi bi-hand-thumbs-down dislike-icon" id="dislikeBtn"></i>
+        <i class="bi bi-share share-icon"></i>
 
+      </div>
     </div>
 
 <div class="mt-3">

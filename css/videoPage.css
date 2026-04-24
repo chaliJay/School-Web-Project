@@ -222,3 +222,64 @@
 .menu-dots:hover {
   color: white;
 }
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+
+.actions i {
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.liked {
+  color: orange;
+  transform: scale(1.2);
+}
+
+.disliked {
+  color: #dc3545;
+  transform: scale(1.2);
+}
+
+.emoji-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.emoji-picker {
+  position: absolute;
+  top: 50%;
+  left: 35px;
+  transform: translateY(-50%);
+
+  background: #222;
+  padding: 8px 12px;
+  border-radius: 25px;
+
+  display: none;           
+  flex-direction: row-reverse;     
+  align-items: center;
+  gap: 10px;
+
+  z-index: 9999;
+}
+
+.emoji {
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+.emoji:hover {
+  transform: scale(1.3);
+}
+
+#selectedEmoji {
+  margin-top: 10px;
+  font-size: 24px;
+}

@@ -201,3 +201,73 @@ function closeMenus() {
         m.classList.remove("show");
     });
 }
+const likeBtn = document.getElementById("likeBtn");
+const dislikeBtn = document.getElementById("dislikeBtn");
+
+let liked = false;
+let disliked = false;
+
+likeBtn.addEventListener("click", () => {
+    liked = !liked;
+    disliked = false;
+
+    if (liked) {
+        likeBtn.classList.remove("bi-hand-thumbs-up");
+        likeBtn.classList.add("bi-hand-thumbs-up-fill");
+        likeBtn.style.color = "blue";
+
+        dislikeBtn.classList.remove("bi-hand-thumbs-down-fill");
+        dislikeBtn.classList.add("bi-hand-thumbs-down");
+        dislikeBtn.style.color = "white";
+    } else {
+        likeBtn.classList.remove("bi-hand-thumbs-up-fill");
+        likeBtn.classList.add("bi-hand-thumbs-up");
+        likeBtn.style.color = "white";
+    }
+});
+
+dislikeBtn.addEventListener("click", () => {
+    disliked = !disliked;
+    liked = false;
+
+    if (disliked) {
+        dislikeBtn.classList.remove("bi-hand-thumbs-down");
+        dislikeBtn.classList.add("bi-hand-thumbs-down-fill");
+        dislikeBtn.style.color = "red";
+
+        likeBtn.classList.remove("bi-hand-thumbs-up-fill");
+        likeBtn.classList.add("bi-hand-thumbs-up");
+        likeBtn.style.color = "white";
+    } else {
+        dislikeBtn.classList.remove("bi-hand-thumbs-down-fill");
+        dislikeBtn.classList.add("bi-hand-thumbs-down");
+        dislikeBtn.style.color = "white";
+    }
+});
+
+const emojiBtn = document.getElementById("emojiBtn");
+const emojiPicker = document.getElementById("emojiPicker");
+const selectedEmoji = document.getElementById("selectedEmoji");
+
+emojiBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); 
+    emojiPicker.style.display =
+        emojiPicker.style.display === "block" ? "none" : "block";
+});
+
+document.querySelectorAll("#emojiPicker .emoji").forEach(e => {
+    e.addEventListener("click", (event) => {
+        event.stopPropagation(); 
+        selectedEmoji.textContent = e.textContent;
+        emojiPicker.style.display = "none";
+    });
+});
+document.querySelectorAll("#emojiPicker .emoji").forEach(e => {
+    e.addEventListener("click", () => {
+        console.log("EMOJI CLICKED:", e.textContent);
+    });
+});
+
+document.addEventListener("click", () => {
+    emojiPicker.style.display = "none";
+});
