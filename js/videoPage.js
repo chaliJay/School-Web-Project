@@ -162,8 +162,15 @@ function onEditClick(id){
     const oldText = textSpan.innerText;
 
     textSpan.innerHTML = `
-        <input type="text" id="edit-input-${id}" value="${oldText}" />
-        <button onclick="onSaveClick(${id})">Save</button>
+        <input type="text"  
+        class="bg-transparent text-light border-0 shadow-none px-0 d-inline"
+        style="
+            border-bottom: 2px solid #ccc !important;
+            outline: none;
+            width: auto;
+        "
+        id="edit-input-${id}" value="${oldText}" />
+        <button class="btn btn-primary btn-sm rounded-pill" onclick="onSaveClick(${id})">Save</button>
     `;
 }
 
