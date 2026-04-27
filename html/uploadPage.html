@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/profilePage.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/uploadPage.css">
 </head>
 <body>
   <header class="header">
@@ -85,9 +86,6 @@
 
         <main class="content">
             <h1>Upload your video</h1>
-            <div id="button-container">
-                <button id="edit-btn">Input</button>
-            </div>
             <div class="info-card">
                 <!-- Info Row: Thumbnail -->
                 <div class="info-row">
@@ -96,6 +94,7 @@
                         <div class="text">
                             <h3>Thumbnail</h3>
                             <p>A thumbnail helps visualize your video</p>
+                            <p style="color: rgb(148, 0, 0); font-size: 0.8rem;">Supported formats: .jpg, .png</p>
                         </div>
                     </div>
                     <div class="val-display" id="thumbnail-container">
@@ -110,18 +109,16 @@
                         <div class="text">
                             <h3>Video File</h3>
                             <p>Upload your video file here</p> 
-                            <br><span class="text-muted">Supported formats: .mp4</span></div> 
+                            <p style="color: rgb(148, 0, 0); font-size: 0.8rem;">Supported formats: .mp4</p></div> 
                         </div>
-                    </div>
-                    <div class="val-display" id="video-file-container">
-                        <input type="file" id="video-file-input" accept="video/mp4">
-                    </div>
+                        <div class="val-display" id="video-file-container">
+                            <input type="file" id="video-file-input" accept="video/mp4">
+                        </div>
                 </div>
-
                 <!-- Info Row: Video Title -->
                 <div class="info-row">
                     <div class="label-group">
-                        <span class="icon">>Title</span>
+                        <span class="icon">�</span>
                         <div class="text">
                             <h3>Video Title</h3>
                         </div>
@@ -144,10 +141,13 @@
                     </div>
                 </div>
             </div>
+            <div id="button-container">
+                <button id="edit-btn">Upload</button>
+            </div>
         </main>
     </div>
     <script src="../js/auth.js"></script>
-    <script src="../js/profilePage.js"></script>
+    <script src="../js/uploadPage.js"></script>
     <script>loadUserInfo();</script>
 </body>
 </html>

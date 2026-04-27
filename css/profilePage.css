@@ -66,10 +66,6 @@ body {
     transition: background 0.2s;
 }
 
-.info-row:hover {
-    background-color: #353535;
-}
-
 .label-group {
     display: flex;
     align-items: center;
