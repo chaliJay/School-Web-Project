@@ -148,7 +148,12 @@
                 </div>
             </div>
             <div id="button-container">
-                <button id="upload-btn">Upload</button>
+                <button type="button" id="cancel-btn">Cancel</button>
+                <button type="button" id="upload-btn">Upload</button>
+                <!-- The spinner is hidden by default -->
+                <div id="loading-area" style="display: none; margin-bottom: 10px;">
+                <span class="spinner">⏳</span> Uploading your video, please wait...
+                </div>
             </div>
 
             </form>
