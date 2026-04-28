@@ -17,7 +17,6 @@ function getMenu() {
 
 function openProfileMenu(event) {
     if (event) event.stopPropagation(); 
-    console.log('openprofile menuuu')
     const menu = getMenu();
 
     if (!getUser()) {

@@ -36,8 +36,17 @@ function showResults(results) {
     results.forEach(video => {
         const li = document.createElement("li");
 
+        const thumbnailPath = video.thumbnail_file_path;
+        let thumbnailUrl = 'assets/video-placeholder.png'; // default
+        if (thumbnailPath) {
+            const parts = thumbnailPath.replace(/\\/g, '/').split('/');
+            const filename = parts[parts.length - 1];
+            const folder = parts[parts.length - 2];
+            thumbnailUrl = `${BACKEND_ROOT_URL}/${folder}/${filename}`;
+        }
+
         li.innerHTML = `
-            <img src="${video.thumbnail_file_path}" width="40">
+            <img src="${thumbnailUrl}" width="40">
             <span>${video.video_title}</span>
         `;
 
