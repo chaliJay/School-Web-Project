@@ -132,6 +132,12 @@ searchBtn.addEventListener("click", () => {
     showResults(filtered);
 });
 
+searchInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        searchBtn.click();
+    }
+});
+
 function showResults(results) {
     resultsList.innerHTML = "";
 
