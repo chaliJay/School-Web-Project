@@ -1,3 +1,4 @@
+// --- VIDEO PAGE LOGIC ---
 async function loadVideo() {
     // Get videoId from URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -101,13 +102,13 @@ async function loadComments() {
             <!-- RIGHT: three dots -->
             ${username == c.user_name ? `
             <div class="position-relative">
-                <button class="btn btn-sm btn-dark border-0" onclick="openCommentMenu(this)">
+                <button class="btn btn-sm btn-dark border-0" id= "dots" onclick="openCommentMenu(this)">
                     <i class="bi bi-three-dots-vertical"></i>
                 </button>
 
-                <ul class="dropdown-menu dropdown-menu-end comment-dropdown">
-                    <li><a class="dropdown-item" onclick="onEditClick(${c.id})">Edit</a></li>
-                    <li><a class="dropdown-item" onclick="onDeleteClick(${c.id})">Delete</a></li>
+                <ul class="dropdown-menu dropdown-menu-end comment-dropdown" id="dropDown">
+                    <li><a class="dropdown-item" id="dropTop" onclick="onEditClick(${c.id})">Edit</a></li>
+                    <li><a class="dropdown-item" id="dropBottom" onclick="onDeleteClick(${c.id})">Delete</a></li>
                 </ul>
             </div>
             ` : ''}
@@ -173,14 +174,9 @@ function onEditClick(id){
 
     textSpan.innerHTML = `
         <input type="text"  
-        class="bg-transparent text-light border-0 shadow-none px-0 d-inline"
-        style="
-            border-bottom: 2px solid #ccc !important;
-            outline: none;
-            width: auto;
-        "
+        class="bg-transparent text-light border-0 shadow-none px-0 d-inline" id="editBox"
         id="edit-input-${id}" value="${oldText}" />
-        <button class="btn btn-primary btn-sm rounded-pill" onclick="onSaveClick(${id})">Save</button>
+        <button class="btn btn-primary btn-sm rounded-pill" id="saveBtn" onclick="onSaveClick(${id})">Save</button>
     `;
 }
 

@@ -107,3 +107,4 @@ function populateVideoGrid(videos) {
 
 // Load videos when page loads
 document.addEventListener('DOMContentLoaded', loadVideos);
+//adding this here for testing purposes

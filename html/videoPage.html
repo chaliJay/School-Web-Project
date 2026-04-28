@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/auth.css">
     <link rel="stylesheet" href="../css/search.css">
 </head>
-<body class="bg-dark text-white">
+<body class="bg-dark text-white" style="background-color: #0f0f0f !important;">
     <header class="header">
         <div class="header-left">
             <div class="logo-container">
@@ -74,14 +74,15 @@
         </div>
        
     </header>
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3" style="background-color: #0f0f0f;">
+      <div class="row">
     <div class="row">
 
-    <div class="col-lg-9">
+    <div class="col-lg-9" style="background-color: #0f0f0f;">
       <!-- Video -->
       <div class="video-container">
         <video controls>
-          <source src="../assets/test-video.mp4" type="video/mp4">
+          <source id="videoSource" src="../assets/test-video.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -137,14 +138,13 @@
         <input 
             type="text" 
             id="commentInput"
-            class="form-control rounded-pill me-2"
             placeholder="Write a comment..."
         />
         <div class="mt-2">
-            <button onclick="addComment()" class="btn btn-primary btn-sm px-3 rounded-pill">
+            <button onclick="addComment()" id="commentBtn" class="btn btn-primary btn-sm px-3 rounded-pill">
                 Comment
             </button>
-            <button class="btn btn-link btn-sm text-decoration-none">Cancel</button>
+            <button class="btn btn-link btn-sm text-decoration-none" id="cancelBTN">Cancel</button>
         </div>
         <div id="commentsList" style="margin-top: 10px;"></div>
 
