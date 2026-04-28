@@ -263,7 +263,6 @@ body {
 }
 .video-box {
     height: 13rem;
-    aspect-ratio: 16 / 9;
     border-radius: 12px;
 }
 .outline:hover{
